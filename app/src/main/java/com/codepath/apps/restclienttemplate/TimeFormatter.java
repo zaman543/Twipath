@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
+import java.util.Objects;
 
 /**
  * Given a date String of the format given by the Twitter API, returns a display-formatted
@@ -19,7 +19,7 @@ public class TimeFormatter {
         SimpleDateFormat format = new SimpleDateFormat(twitterFormat, Locale.ENGLISH);
         format.setLenient(true);
         try {
-            long diff = (System.currentTimeMillis() - format.parse(rawJsonDate).getTime()) / 1000;
+            long diff = (System.currentTimeMillis() - Objects.requireNonNull(format.parse(rawJsonDate)).getTime()) / 1000;
             if (diff < 5)
                 time = "Just now";
             else if (diff < 60)
@@ -33,7 +33,7 @@ public class TimeFormatter {
             else {
                 Calendar now = Calendar.getInstance();
                 Calendar then = Calendar.getInstance();
-                then.setTime(format.parse(rawJsonDate));
+                then.setTime(Objects.requireNonNull(format.parse(rawJsonDate)));
                 if (now.get(Calendar.YEAR) == then.get(Calendar.YEAR)) {
                     time = then.get(Calendar.DAY_OF_MONTH) + " "
                             + then.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.US);
@@ -61,7 +61,7 @@ public class TimeFormatter {
         format.setLenient(true);
         try {
             Calendar then = Calendar.getInstance();
-            then.setTime(format.parse(rawJsonDate));
+            then.setTime(Objects.requireNonNull(format.parse(rawJsonDate)));
             Date date = then.getTime();
 
             SimpleDateFormat format1 = new SimpleDateFormat("h:mm a \u00b7 dd MMM yy");

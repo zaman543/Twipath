@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAlignment="center"
+    android:visibility="visible"
+    tools:context=".ComposeActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#04C5DD"
+        app:counterEnabled="true"
+        app:counterMaxLength="280"
+        app:counterOverflowTextAppearance="@style/counterOverride"
+        app:counterTextAppearance="@style/counterText">
+
+        <EditText
+            android:id="@+id/etCompose"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:autofillHints="enter something"
+            android:backgroundTint="#00BCD4"
+            android:backgroundTintMode="screen"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:gravity="start|top"
+            android:includeFontPadding="true"
+            android:inputType="textMultiLine"
+            android:lineSpacingExtra="8sp"
+            android:maxLength="280"
+            android:minLines="5"
+            android:outlineProvider="background"
+            android:padding="13dp"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            android:typeface="sans"
+            android:verticalScrollbarPosition="defaultPosition"
+            tools:text="@string/compose_tweet_hint" />
+
+        <Button
+            android:id="@+id/btnTweet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="15dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:backgroundTint="#00BCD4"
+            android:backgroundTintMode="src_in"
+            android:fontFamily="sans-serif-light"
+            android:rotation="0"
+            android:rotationX="0"
+            android:rotationY="0"
+            android:text="@string/btnTweet"
+            android:textColor="#015761"
+            android:visibility="visible" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>
